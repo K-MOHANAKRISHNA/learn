@@ -3,7 +3,7 @@ import matplotlib.pyplot as mtp
 import pandas as pd  
   
 #importing datasets  
-data_set= pd.read_csv(r'F:\ml\User_Data.csv')  
+data_set= pd.read_csv(r'C:\Users\BASHA\Documents\20P31A0522\iris.csv')  
   
 #Extracting Independent and dependent Variable  
 x= data_set.iloc[:, [2,3]].values  
@@ -24,6 +24,7 @@ classifier= KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2 )
 classifier.fit(x_train, y_train)  
 #Predicting the test set result  
 y_pred= classifier.predict(x_test)  
+print(y_pred)
 #Creating the Confusion matrix  
 from sklearn.metrics import confusion_matrix  
 cm= confusion_matrix(y_test, y_pred)  
@@ -31,6 +32,14 @@ print(cm)
 
 
 '''
-[[64  4]
- [ 3 29]]
- '''
+['virginica' 'versicolor' 'setosa' 'virginica' 'setosa' 'virginica'
+ 'setosa' 'versicolor' 'versicolor' 'versicolor' 'virginica' 'versicolor'
+ 'versicolor' 'versicolor' 'versicolor' 'setosa' 'versicolor' 'versicolor'
+ 'setosa' 'setosa' 'virginica' 'versicolor' 'setosa' 'setosa' 'virginica'
+ 'setosa' 'setosa' 'versicolor' 'versicolor' 'setosa' 'virginica'
+ 'versicolor' 'setosa' 'virginica' 'virginica' 'versicolor' 'setosa'
+ 'versicolor']
+[[13  0  0]
+ [ 0 16  0]
+ [ 0  0  9]]
+'''
