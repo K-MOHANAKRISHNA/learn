@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as mtp
 import pandas as pd
-data_set = pd.read_csv(r'F:\ml\User_Data.csv')
+data_set = pd.read_csv(r"C:\Users\BASHA\Documents\20P31A0522\User_Data.csv")
 x = data_set.iloc[:, [2, 3]].values
 y = data_set.iloc[:,4].values
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.25, random_state=0)
 from sklearn.preprocessing import StandardScaler
 st_x = StandardScaler()
 x_train = st_x.fit_transform(x_train)
@@ -27,8 +28,6 @@ accuracy = accuracy_score(y_test, y_pred)
 print('precision:', precision)
 print('recall:', recall)
 print('Accuracy:', accuracy)
-
-
 '''
 [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 1 0 0 0 0 0 0 1 0 0 0 0
  0 0 1 0 0 0 0 1 0 0 1 0 1 1 0 0 1 1 0 0 0 1 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0
