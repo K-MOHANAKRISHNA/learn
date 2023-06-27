@@ -3,10 +3,11 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-data_set = pd.read_csv(r'F:\ml\Salary_Data.csv')
+data_set = pd.read_csv(r"salary_data.csv")
 x = data_set.iloc[:, :-1].values
 y = data_set.iloc[:, 1].values
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=1/3, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=1/3, random_state=0)
 model = LinearRegression()
 model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
@@ -24,5 +25,8 @@ plt.xlabel("years of Experience")
 plt.ylabel("Salary(In rupees)")
 plt.show()
 
+
+
 '''
-diagram'''
+diagram
+'''
