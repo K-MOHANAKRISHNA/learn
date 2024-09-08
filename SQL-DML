@@ -1,0 +1,60 @@
+Database Manipulation Language - DML
+
+Commands like Insert,Update,Delete,Select
+
+DML - Defines the data of a table.
+
+1. Insert rows
+Used tp insert data into an existing table
+
+Syntax :- 
+  INSERT INTO table_name [(col1,col2..coln)] VALUES (val1,val2,..valn);
+
+ex:-
+ INSERT INTO customer VALUES(1,'Tom','787487157','Tom@gmail.com','Mumbai');
+
+Note:- Data for date,char and varchar types should be always enclosed with single quotes.
+
+
+Specific Insertion
+
+  INSERT INTO Customer (Cid,Cname,address) VALUES (2,'Mini','Chennai');
+
+2. UPDATE
+update the data in an existing table, completely or by checking the conditions.
+
+Syntax :-
+  UPDATE table_name SET colname=val [,colname2=val2,...] [WHERE condition];
+
+ex:- 
+  UPDATE Customer SET emailid='Tiny@gmail.com' WHERE cname='Tiny';
+
+
+3. DELETE
+used to delete data from the table
+
+synatx :-
+ DELETE [FROM] table [WHERE condition]
+
+ex:-
+
+ DELETE FROM customer WHERE Cid=2;
+
+to del all rows
+  DELETE FROM customer;
+
+Note:- Deletion is not posiible if the row to be deleted is referred in the child table
+Deletion of the parent record is made by using a foreign key reference option
+
+Reference Options:-
+
+-cascade : Deletes the row in parent table and automatically deletes the matching rows in child table
+-set null : Deletes the row in parent table and sets the foreign key null in the child table
+-restrict : Rejects the delete or update operation for the parent table
+
+syntax:-
+ REFERENCES tbl_name(index_col_name,...) [ON DELETE reference_opt]
+
+
+
+tcl transaction commands,locking - learning
