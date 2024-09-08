@@ -1,0 +1,96 @@
+DDL:
+  CREATE
+  ALTER
+  TRUNCATE
+  RENAME
+  DROP
+
+
+
+CREATE TABLE TABLE_NAME(col1 datatype1(data size), col2 dt2(size),....coln dtn(size));
+
+ex:-
+->create table student(student_id int,st_name varchar(20),st_add varchar(50),st_dept char(2));
+the table is created 
+
+now i want to make st_id is primary key..so i need to use alter key
+
+->alter table student add primary key(student_id);
+succesfullly made the changes
+
+adding a column after a particular column
+
+-> alter table student add DOB date after st_name;
+after st_name this DOB column added
+
+now i wanted to know about my table like what are the colns are there
+
+->desc student;
+it'll print filed name and its datatypes (about the table)
+
+now i wanted to remove st_add from the table
+
+->alter table student drop st_add;
+the st_addr column is removed from the student table now
+
+now i want to change the st_name size is from 20 to 50
+
+->alter table student modify st_name varchar(50);
+the varchar size is update from 20 to 50 for st_name
+
+i want to change the name from st_name to stud_name
+
+->alter table student st_name stud_name varchar(50);
+the name will be updated
+
+to rename the table 
+
+->rename table student to participants;
+the table name will be updated
+
+->desc participants;
+
+
+->drop table participants;
+the table is removed from the from the DB
+
+->truncate table participant;
+removes all rows in the table
+
+how to add prmary key while creating the table?
+
+you can  mention primary key at the last
+-> ->create table student(student_id int,st_name varchar(20),st_add varchar(50),st_dept char(2),primary key(st_id));
+
+or
+
+you can mention primary key keyword after that particulat colname
+->create table student(student_id int primary key,st_name varchar(20),st_add varchar(50),st_dept char(2));
+
+or
+
+you can create new name for that primary key constraint (recmmended)
+->create table student(student_id int,st_name varchar(20),st_add varchar(50),st_dept char(2),constraint pk_student primary key(st_id));
+it's better to give name for constraint key so it'll be easy use to remove that constraint in future rather than deleting that coln
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Create Demo
+
+Foriegn key
+
+foreign key(colname) references table_name(col_name);
+
+------------------------------------------------------------------------------------
+Alter table
+
+alter table tablename is common for all
+
+add - to add a new column into the table
+drop column - to remove an existing column
+modify - to modify the data type pf the existing column
+change - to rename the column name
+
+---------------------------------------------------------------------------------------------------
+
