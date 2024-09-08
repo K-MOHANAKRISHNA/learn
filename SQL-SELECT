@@ -1,0 +1,111 @@
+DML- SELECT
+
+is used for retrieving
+  -all rows from the table
+  -specific rows from the table
+  -specific values from the table
+  -data from more than one table
+
+Syntax :-
+
+->
+SELECT [distinct] [colname1,colname2,..]
+FROM table_name [alias] [,table_name [alias]..
+[Where condtions]
+[Group by group [Having group_conditions]]
+[Oredr by sort_columns[asc|desc]];
+
+1.to retrieve all the records
+
+-> select * from tablename;
+prints all data
+
+2.retrieve specific cols
+
+->slect col1,col3 from tablename;
+ex:- select cname,add from customer;
+fetch that particular columns data
+
+3.
+examples
+
+->select pid,minamount+(minamount*0.1) as policyamount from policy;
+
+b. concatenation operator
+->select cname || "lives in" || Address as Cust_Addr from customer;
+
+sample output
+Cust_Addr
+Tom lives in Chennai
+
+c. Distinct keywords - to eliminate duplicates
+
+->Select DISTINCT addres from customer;
+prints all unique addresses
+
+d.specific condition (where clause)
+
+->select cname,email,addr from customer where addr='Chennai';
+prints all customers whose address is chennai
+
+e. pattern matching
+->select cid,cname from customer where emailid like '%yahoo%';
+prints al; who is having yahoo email
+
+f.Between and (values inclusive)
+-> select * from policy where minamount between 2500 and 5000;
+
+g.in
+select cid,pid from policyenrollment where cid in (101,105);
+
+h.is null
+->select * from policyenrollment where penality is null;
+
+
+
+
+Comparision operators in SQL
+= equal to
+>
+>=
+<
+<=
+!=,<> Not equal to
+Between ... and  (Range and values)
+In (Match any of the list values)
+Like (Match a character pattern)
+Is null (is a null value?)
+
+
+Logical Operators
+And
+or
+Not
+
+
+4.Order by clause - to retreive un ascending or descending order
+
+default-ascending order (asc)
+
+->select cname rom customer order by cname;
+
+->select cname from customer order by cname desc;
+
+
+SELECT
+FROM
+WHERE (logical conditions)
+Group by (aggregate functions)
+Having
+Order by
+
+
+UNION ALL (combines two select queries and gives the output) or UNION
+
+->
+select ename from emp where salary>150000
+UNION ALL
+select ename from emp where deptid=500001 order by 1 asc;  31 is nothing but based on first column
+
+Note:- UNION ALL (return duplicate values) but UNION avoids duplicate values
+
