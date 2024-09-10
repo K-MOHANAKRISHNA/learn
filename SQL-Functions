@@ -1,0 +1,85 @@
+Functions in SQL
+  -Single row functions
+  -Multi row functions also called as group/aggregate function
+
+
+function -> a function is a block of code that returns a single value
+
+
+
+functions 
+  1.Built-in/sql functions
+        a.Single row (character function,number,adte,conversion functions)
+        b.Multi-row (avg,max,min)
+  2.User Define Functions (user can create their own function using pl/sql code)
+
+
+
+1.Character functions
+
+Lower(column | exp) ->converts to lowercase
+  select lower(cname) from customer where cid=1; tom
+Upper(colmn | exp) -> converts to uppercase
+  select upperr(cname) from customer where cid=1;  TOM
+Concat(col1|exp1,col2|exp2) -> joins
+   select concat(fname,lname) from customer where cid=1;  TomBye
+Substr(col|exp,m,[n]) -> starting from m position and n characters long
+   select substr(cname,1,2) from customer where cid=1; //To
+   select substr(cname,1) from customer where mid=1; //Tom
+   select substr(cname,-2,2) from customer where cid=1; //om
+Length(col|exp) -> returns length
+     select length(cname) from customer where cid=1; //3
+Trim(col|exp) -> remove leading and trainling spaces from the string
+   select trim('    hi     '); //hi
+
+2.Number Functions (accept numeric input and return numeric values)
+
+abs(col|exp) -> returns absolute value
+    select abs(-5) from dual; //5
+ceil(col|exp)
+    select ceil(5.3) from dual; //6
+floor(col|exp)
+    select floor(5.3) from dual; //5
+mod(m,n) ->m divide by n
+    select mod(10,2) from dual; //0
+round(n,[,m]) -> round off
+    select round(10.678,1) from dual; //10.7
+    select round(10.678) from dual; //11
+truncate(n[,m]) -> truncate
+    select truncate(10.678,0) from dual; //10
+    select truncate(10.678,1) from dual; //10.6
+
+3. date functions 
+
+select sysdate();
+
+Arithemtic operations
+  -Add days to date
+  -Subtract days from date
+  -Subtract two dates
+
+examples
+adddate(date,days)
+    selct adddate('1992-01-19',Interval 10 day) from dual; //1993-01-29
+subdate(date,days)
+    selct subdate('1992-01-19',Interval 10 day) from dual; //1993-01-09
+dayname(col|date)
+    selct dayname('1992-01-19') from dual; //Tuesday
+monthname(col|date)
+    selct monthname('1992-01-19') from dual; //January
+year(cil|date)
+    selct year('1992-01-19') from dual; //1993
+weekday(date)
+    selct weekday('1992-01-19') from dual; //1 (eg: 0 for monday,1 for tuesday)
+datediff(date1,date2)
+    selct datediff(sysdate(),'1992-01-19') from dual; //9204
+curdate()
+    select currdate() from dual; //2024-10-9 current sys date
+curtime() //prints current sys time
+sysdate() //print sys date and time 'yyyy-mm-dd' HH:MM;SS
+timediff()
+extract()
+    select extract(year from sysdate()) from dual; //2024
+
+
+2.Aggregare functions (Min,max,sum,count,avg)
